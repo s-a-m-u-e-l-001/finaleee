@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Paws - Premium Dogs for Loving Families</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c5530;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2c5530;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="3" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="30" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="70" r="4" fill="%23ffffff" opacity="0.1"/></svg>');
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #2c5530;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: #555;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: #2c5530;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: #1e3a21;
+            transform: translateY(-2px);
+        }
+
+        /* Services Grid */
+        .services {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c5530;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            color: #2c5530;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #e17055;
+            margin-bottom: 1rem;
+        }
+
+        /* Featured Dogs */
+        .featured-dogs {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .dogs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .dog-card {
+            background: #f8f9fa;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .dog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .dog-image {
+            height: 250px;
+            background: linear-gradient(45deg, #74b9ff, #00cec9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .dog-info {
+            padding: 1.5rem;
+        }
+
+        .dog-info h3 {
+            color: #2c5530;
+            margin-bottom: 0.5rem;
+        }
+
+        .dog-breed {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #2c5530;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            margin-bottom: 3rem;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #2c5530;
+        }
+
+        .faq-question:hover {
+            background: #e9ecef;
+        }
+
+        .faq-answer {
+            padding: 1.5rem;
+            display: none;
+            color: #666;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c5530;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2c5530;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c5530;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">🐾 Healthy Paws</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#dogs">Our Dogs</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Find Your Perfect Companion</h1>
+                <p>We connect loving families with healthy, well-bred puppies. Every dog comes with health guarantees and ongoing support for a lifetime of happiness.</p>
+                <a href="#dogs" class="cta-button">Browse Our Dogs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">We Help You Find Your Perfect Match</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>🏠 Home Delivery</h3>
+                    <p>Safe and comfortable transport of your new puppy directly to your home with all necessary documentation.</p>
+                    <div class="price">KSH 2,500</div>
+                    <a href="#contact" class="cta-button">Book Service</a>
+                </div>
+                <div class="service-card">
+                    <h3>🏥 Health Check-up</h3>
+                    <p>Complete veterinary examination including vaccinations, deworming, and health certificate before pickup.</p>
+                    <div class="price">Included</div>
+                    <a href="#contact" class="cta-button">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <h3>📚 Training Guide</h3>
+                    <p>Comprehensive puppy training materials and 24/7 support from our expert trainers for the first 3 months.</p>
+                    <div class="price">KSH 1,500</div>
+                    <a href="#contact" class="cta-button">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Dogs -->
+    <section class="featured-dogs" id="dogs">
+        <div class="container">
+            <h2 class="section-title">Your Path to a Loyal Friend</h2>
+            <div class="dogs-grid">
+                <div class="dog-card">
+                    <div class="dog-image">🐕</div>
+                    <div class="dog-info">
+                        <h3>Golden Retriever Puppies</h3>
+                        <p class="dog-breed">8 weeks old • Vaccinated • Health certified</p>
+                        <div class="price">KSH 25,000</div>
+                        <p>Friendly, intelligent, and great with children. Perfect family companions.</p>
+                    </div>
+                </div>
+                <div class="dog-card">
+                    <div class="dog-image">🐺</div>
+                    <div class="dog-info">
+                        <h3>German Shepherd</h3>
+                        <p class="dog-breed">10 weeks old • Trained • Health certified</p>
+                        <div class="price">KSH 55,000</div>
+                        <p>Loyal, courageous, and highly versatile. Excellent guard dogs and companions.</p>
+                    </div>
+                </div>
+                <div class="dog-card">
+                    <div class="dog-image">🦮</div>
+                    <div class="dog-info">
+                        <h3>Labrador Puppies</h3>
+                        <p class="dog-breed">6 weeks old • Vaccinated • Health certified</p>
+                        <div class="price">KSH 38,000</div>
+                        <p>Outgoing, active, and friendly. America's most popular dog breed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Families Are Saying</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>"We got our Golden Retriever Max from Healthy Paws last year. He's been the perfect addition to our family. The service was exceptional!"</p>
+                    <strong>- Sarah & John, Nairobi</strong>
+                </div>
+                <div class="testimonial">
+                    <p>"Professional service, healthy puppies, and ongoing support. Our German Shepherd Luna is everything we hoped for."</p>
+                    <strong>- Michael K., Mombasa</strong>
+                </div>
+                <div class="testimonial">
+                    <p>"The training support was invaluable. Our Lab puppy settled in so quickly thanks to their guidance."</p>
+                    <strong>- Grace M., Kisumu</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What health guarantees do you provide?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    All our puppies come with a comprehensive health guarantee covering genetic conditions for 2 years. We provide vaccination records, health certificates, and 30-day health insurance coverage.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How much does delivery cost within Nairobi?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Delivery within Nairobi is KSH 2,000. For other counties, delivery ranges from KSH 5,000 to KSH 8,000 depending on the distance. We ensure safe, comfortable transport for your new puppy.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What payment methods do you accept?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    We accept M-Pesa, bank transfers, and cash payments. A 50% deposit is required to reserve your puppy, with the balance due at pickup or delivery.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do you provide training support?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes! We offer comprehensive training guides and 24/7 phone support for the first 3 months. We also have professional trainers available for in-home sessions at KSH 3,500 per session.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can I visit and see the puppies before buying?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Absolutely! We encourage visits to our facility in Karen, Nairobi. You can meet the puppies, see their living conditions, and even meet the parent dogs. Please call ahead to schedule your visit.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">We're Here to Support You</h2>
+            <div class="contact-grid">
+                <div>
+                    <h3 style="color: #2c5530; margin-bottom: 2rem;">Get in Touch</h3>
+                    <p style="margin-bottom: 1rem;"><strong>📞 Phone:</strong> 0746380488</p>
+                    <p style="margin-bottom: 1rem;"><strong>📧 Email:</strong> healthypaws@gmail.com</p>
+                    <p style="margin-bottom: 1rem;"><strong>📍 Location:</strong> Karen, Nairobi</p>
+                    <p style="margin-bottom: 2rem;"><strong>🕒 Hours:</strong> Mon-Sat 8AM-6PM</p>
+                    <p>Ready to welcome a new family member? Contact us today and let us help you find the perfect companion!</p>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="breed">Interested Breed</label>
+                            <input type="text" id="breed" name="breed" placeholder="e.g., Golden Retriever">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your family and what you're looking for..."></textarea>
+                        </div>
+                        <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Healthy Paws Kenya. All rights reserved. | Bringing families and puppies together since 2020</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('span:last-child');
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                if (item !== answer) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            document.querySelectorAll('.faq-question span:last-child').forEach(item => {
+                if (item !== icon) {
+                    item.textContent = '+';
+                }
+            });
+            
+            // Toggle current FAQ
+            answer.classList.toggle('active');
+            icon.textContent = answer.classList.contains('active') ? '−' : '+';
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! We\'ll contact you soon to discuss your perfect puppy match.');
+        });
+    </script>
+</body>
+</html>
